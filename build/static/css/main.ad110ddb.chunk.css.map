@@ -1,0 +1,1 @@
+{"version":3,"sources":["Nav.css","index.css"],"names":[],"mappings":"AAAA,6BACI,UAAY,CACZ,WACJ,CCCA,UACI,QAAW,CACX,SACJ","file":"main.ad110ddb.chunk.css","sourcesContent":[".listItem span, .listItem svg{\r\n    color: white;\r\n    opacity: 0.75;\r\n}\r\n","html{\r\n    margin: 0px;\r\n    padding: 0px;\r\n}\r\nbody{\r\n    margin: 0px;\r\n    padding: 0px;\r\n}"]}

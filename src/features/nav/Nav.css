@@ -1,0 +1,4 @@
+.listItem span, .listItem svg{
+    color: white;
+    opacity: 0.75;
+}
