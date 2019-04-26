@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles, CssBaseline } from "@material-ui/core";
-import Nav from '../features/nav/Nav';
-import Dashboard from '../features/dashboard/Dashboard';
+import Nav from "../features/nav/Nav";
+import Dashboard from "../features/dashboard/Dashboard";
+import Overview from "../features/overview/Overview";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -89,17 +91,19 @@ class App extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
-        <CssBaseline />
-       <Nav />
-      
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer}>
-          <Dashboard />
-        </div>
-      </main>
+      <Router>
+        <div className={classes.root}>
+          <CssBaseline />
+          <Nav />
 
-      </div>
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer}>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/overview" component={Overview} />
+            </div>
+          </main>
+        </div>
+      </Router>
     );
   }
 }

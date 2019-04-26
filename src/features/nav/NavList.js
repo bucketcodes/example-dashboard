@@ -3,11 +3,14 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  ListSubheader
+  ListSubheader,
+  MenuItem
 } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import AssignmentIcon from "@material-ui/icons/Assignment";
+import DescriptionIcon from "@material-ui/icons/Description";
 import "./Nav.css";
+import { Link } from "react-router-dom";
 
 export const MainListItems = ({ open }) => {
   return (
@@ -18,12 +21,22 @@ export const MainListItems = ({ open }) => {
         </ListSubheader>
       )}
 
-      <ListItem className="listItem" button>
-        <ListItemIcon style={{ paddingLeft: 7 }}>
-          <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary="Dashboard" />
-      </ListItem>
+      <Link to="/">
+        <MenuItem className="listItem" button>
+          <ListItemIcon style={{ paddingLeft: 7 }}>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </MenuItem>
+      </Link>
+      <Link to="/overview">
+        <MenuItem className="listItem" button>
+          <ListItemIcon style={{ paddingLeft: 7 }}>
+            <DescriptionIcon />
+          </ListItemIcon>
+          <ListItemText primary="Overview" />
+        </MenuItem>
+      </Link>
     </div>
   );
 };

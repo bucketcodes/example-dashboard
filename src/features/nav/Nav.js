@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { withStyles, Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton, Badge} from "@material-ui/core";
+import { withStyles, Drawer, AppBar, Toolbar, List, MenuList, Typography, Divider, IconButton, Badge} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import PersonIcon from "@material-ui/icons/Person";
@@ -147,7 +147,7 @@ class Nav extends React.Component {
         >
 
           <Divider />
-          <List><MainListItems open={this.state.open}/></List>
+          <MenuList><MainListItems open={this.state.open}/></MenuList>
           <Divider />
           <List><SecondaryListItems open={this.state.open} /> </List>
         </Drawer>
