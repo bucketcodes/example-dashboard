@@ -1,27 +1,36 @@
 import React from "react";
 import { Grid, Paper, Typography, Divider, Button } from "@material-ui/core";
-import {Bar, Line} from 'react-chartjs-2';
+import { Bar, Line, Pie } from "react-chartjs-2";
 
 class Dashboard extends React.Component {
-    constructor(props){
-        super(props)
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            data: {
-                labels: ["1", "2", "3", "4", "5"],
-                datasets: [{
-                    label: "Loans Made",
-                    backgroundColor: "rgba(255,0,255,0.75)",
-                    data: [4, 12, 1, 10, 6, 4]
-                },
-                {
-                    label: "Potential",
-                    backgroundColor: "rgba(0,255,0,0.75)",
-                    data: [1, 12, 21, 18, 30, 43]
-                }]
-            }
-        }
-    }
+    this.state = {
+      data: {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [
+          {
+            label: "Loans Made",
+            backgroundColor: "rgba(255,0,255,0.75)",
+            data: [4, 12, 1, 10, 6, 4]
+          },
+          {
+            label: "Potential",
+            backgroundColor: "rgba(0,255,0,0.75)",
+            data: [1, 12, 21, 18, 30, 43]
+          }
+        ]
+      },
+      datapie: {
+        labels: ["Loans", "Potential", "Leads", "Finished"],
+        datasets: [{
+          data: [4, 12, 1, 10],
+          backgroundColor: ['#C297B8', '#FDCFF3', '#DE89BE', '#40434E']
+        }]
+      }
+    };
+  }
 
   render() {
     return (
@@ -55,7 +64,7 @@ class Dashboard extends React.Component {
                   >
                     Prospects
                   </Typography>
-                  <div style={{ backgroundColor: "gray", padding: 10 }}>
+                  <div style={{ backgroundColor: "#51505c", padding: 10 }}>
                     <Typography style={{ color: "white", textAlign: "center" }}>
                       3<br />
                       Total Value: $2,065,234.21
@@ -91,7 +100,7 @@ class Dashboard extends React.Component {
                   >
                     Submitted to FormWRX
                   </Typography>
-                  <div style={{ backgroundColor: "gray", padding: 10 }}>
+                  <div style={{ backgroundColor: "#51505c", padding: 10 }}>
                     <Typography style={{ color: "white", textAlign: "center" }}>
                       3<br />
                       Total Value: $2,065,234.21
@@ -127,7 +136,7 @@ class Dashboard extends React.Component {
                   >
                     Suspects
                   </Typography>
-                  <div style={{ backgroundColor: "gray", padding: 10 }}>
+                  <div style={{ backgroundColor: "#51505c", padding: 10 }}>
                     <Typography style={{ color: "white", textAlign: "center" }}>
                       3<br />
                       Total Value: $2,065,234.21
@@ -156,28 +165,41 @@ class Dashboard extends React.Component {
         </Grid>
 
         <Grid item xs={12}>
-            <Paper>
-                <Grid container spacing={24}>
-                    <Grid style={{position: 'relative'}} item xs={12} md={6} lg={4}>
-                      <Bar 
-                        options={{
-                            responsive: true
-                        }}
-                        data={this.state.data}
-                      />
-                    </Grid>
-                    <Grid style={{position: 'relative'}} item xs={12} md={6} lg={4}>
-                      <Line 
-                        options={{
-                            responsive: true
-                        }}
-                        data={this.state.data}
-                      />
-                    </Grid>
-                </Grid>
-            </Paper>
+          <Paper style={{padding: 20}}>
+            <Grid container spacing={24}>
+              <Grid style={{ position: "relative" }} item xs={12} md={6} lg={4}>
+                <Paper>
+                  <Bar
+                    options={{
+                      responsive: true
+                    }}
+                    data={this.state.data}
+                  />
+                </Paper>
+              </Grid>
+              <Grid style={{ position: "relative" }} item xs={12} md={6} lg={4}>
+                <Paper>
+                  <Line
+                    options={{
+                      responsive: true
+                    }}
+                    data={this.state.data}
+                  />
+                </Paper>
+              </Grid>
+              <Grid style={{ position: "relative" }} item xs={12} md={6} lg={4}>
+                <Paper>
+                  <Pie
+                    options={{
+                      responsive: true
+                    }}
+                    data={this.state.datapie}
+                  />
+                </Paper>
+              </Grid>
+            </Grid>
+          </Paper>
         </Grid>
-
       </Grid>
     );
   }
