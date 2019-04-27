@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Paper, Typography, Divider, Button } from "@material-ui/core";
 import { Bar, Line, Pie } from "react-chartjs-2";
+import Map from "../map/Map";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -195,6 +196,11 @@ class Dashboard extends React.Component {
                     }}
                     data={this.state.datapie}
                   />
+                </Paper>
+              </Grid>
+              <Grid style={{ position: "relative" }} item xs={12} md={6} lg={8}>
+                <Paper>
+                    <Map />
                 </Paper>
               </Grid>
             </Grid>
